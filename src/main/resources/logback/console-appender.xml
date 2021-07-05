@@ -1,0 +1,17 @@
+<included>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="br.com.cielo.hyaku.pixkeys.configurations.MaskingPatternLayout">
+
+                <timestampFormat>yyyy-MM-dd'T'HH:mm:ss.SSSX</timestampFormat>
+                <patternsProperty>key: (.+\d)|transactionalPassword: (.+\d)|password: (.+\d)|cardNumber\\":\\"\d{4}(\d{8})|cvv\\":\\"(\d{3})</patternsProperty>
+                <!--<timestampFormatTimezoneId>Etc/UTC</timestampFormatTimezoneId>-->
+                <jsonFormatter class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter">
+                    <prettyPrint>false</prettyPrint>
+                </jsonFormatter>
+                <appendLineSeparator>true</appendLineSeparator>
+            </layout>
+
+        </encoder>
+    </appender>
+</included>
